@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::destoryOutOfBounds
   topBound: 30
   lowerBound: -10
+  sideBound: 15
 --- !u!114 &4557277396215065690
 MonoBehaviour:
   m_ObjectHideFlags: 0

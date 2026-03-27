@@ -7,7 +7,7 @@ public class detectCollisions : MonoBehaviour
 
         if(Other.gameObject.CompareTag("Boss"))
         {
-
+            Destroy(gameObject);
             //code in bosses script!!!
             //Destroy(gameObject);
         }

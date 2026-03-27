@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.FilePathAttribute;
 
 public class spawnManager : MonoBehaviour
@@ -6,10 +7,14 @@ public class spawnManager : MonoBehaviour
     public int enemyCount = 0;
     public int spawnType = 1;
     public int bossTime = 0;
+    public int Stage = 1;
 
     public bool enemyDied = false;
+    public bool bossSpawning = true;
+    public bool bossDied = false;
 
     public GameObject[] Enemies;
+    public GameObject[] Boss;
     public Vector3[] positions;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +30,44 @@ public class spawnManager : MonoBehaviour
     {
         if (enemyCount == 20 || enemyCount > 20)
         {
-            if (bossTime == 1 && enemyDied == true)
-            { 
-                
+            bossTime = 1;
+
+            if (bossTime == 1 && enemyDied == true && bossSpawning == true)
+            {
+                bossSpawning = false;
+
+                if(Stage == 1) 
+                {
+                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
+                }
+                else if(Stage == 2) 
+                {
+                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
+                }
+                else 
+                {
+                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
+                }
+
+            }
+            else if (bossTime == 2)
+            {
+                Debug.Log("you Won");
+                if (Stage == 1)
+                {
+                    SceneManager.LoadScene(1, LoadSceneMode.Single);
+                }
+                else if (Stage == 2) 
+                {
+                    SceneManager.LoadScene(2, LoadSceneMode.Single);
+                }
             }
             else
             {
-                Debug.Log("you Won");
+                if (bossTime == 1 && bossDied == true)
+                {
+                    bossTime = 2;
+                }
             }
         }
         else
@@ -116,7 +152,20 @@ public class spawnManager : MonoBehaviour
 
     }
 
+    //Work on Bossfind!!!
+    bool Bossfind()
+    {
+        bool a = false;
 
+        if(a == true)
+        {
+            return (true);
+        }
+        else
+        {
+            return (false);
+        }
+    }
     int RandomType()
     {
         int random_number = Random.Range(1, 5);
