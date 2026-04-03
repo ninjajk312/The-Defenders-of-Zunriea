@@ -4,9 +4,10 @@ public class blastTarget : MonoBehaviour
 {
 
     public float speed = 5;
+    public int CountMax = 2000;
+    public int Count = 0;
 
     private Transform playerPos;
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,5 +27,12 @@ public class blastTarget : MonoBehaviour
         {
             transform.Translate(playerPos.position * Time.deltaTime * speed);
         }
+
+        if (Count > CountMax) 
+        {
+            Destroy(gameObject);
+        }
+
+        Count++;
     }
 }
