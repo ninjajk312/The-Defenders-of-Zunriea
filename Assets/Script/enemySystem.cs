@@ -31,7 +31,7 @@ public class enemySystem : MonoBehaviour
         else
         {
 
-            if (counter == 250)
+            if (counter == 100)
             {
                 Instantiate(projectile, transform.position, projectile.transform.rotation);
 

@@ -12,10 +12,11 @@ public class playerSystem : MonoBehaviour
     public float verticalInput;
     
     public GameObject[] projectiles;
+    public GameObject spawner;
 
-    private void Start()
+    void Start()
     {
-        
+        spawner.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

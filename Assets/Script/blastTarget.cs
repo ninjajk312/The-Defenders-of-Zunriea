@@ -4,7 +4,7 @@ public class blastTarget : MonoBehaviour
 {
 
     public float speed = 5;
-    public int CountMax = 2000;
+    public int CountMax = 10000;
     public int Count = 0;
 
     private Transform playerPos;

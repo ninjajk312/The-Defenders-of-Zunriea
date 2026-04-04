@@ -14,6 +14,20 @@ public class bossOne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BossOne();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+
+        if (other.CompareTag("Player Blast"))
+        {
+            health--;
+        }
+    }
+    void BossOne()
+    {
         if (counter == 250 || counter == 750 || counter == 1200)
         {
             Blast();
@@ -34,17 +48,6 @@ public class bossOne : MonoBehaviour
 
         counter++;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
-
-        if (other.CompareTag("Player Blast"))
-        {
-            health--;
-        }
-    }
-
     void Blast()
     {
         int random_number = Random.Range(0, 3);

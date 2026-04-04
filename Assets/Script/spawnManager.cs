@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.FilePathAttribute;
 
 public class spawnManager : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class spawnManager : MonoBehaviour
     public int bossTime = 0;
     public int Stage = 1;
 
-    public bool enemyDied = false;
     public bool bossSpawning = true;
     public bool bossDied = false;
 
@@ -17,9 +15,13 @@ public class spawnManager : MonoBehaviour
     public GameObject[] Boss;
     public Vector3[] positions;
 
+    private bossOne currentBoss;
+    private playerSystem player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<playerSystem>();
 
         InvokeRepeating("SpawnEnemies", 2.5f, 10f);
 
@@ -28,17 +30,26 @@ public class spawnManager : MonoBehaviour
 
     void SpawnEnemies()
     {
+        if (player == null) 
+        {
+
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+
         if (enemyCount == 20 || enemyCount > 20)
         {
             bossTime = 1;
 
-            if (bossTime == 1 && enemyDied == true && bossSpawning == true)
+            if (bossTime == 1 && bossSpawning == true)
             {
+
+
                 bossSpawning = false;
 
                 if(Stage == 1) 
                 {
                     Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
+                    
                 }
                 else if(Stage == 2) 
                 {
@@ -53,17 +64,12 @@ public class spawnManager : MonoBehaviour
             else if (bossTime == 2)
             {
                 Debug.Log("you Won");
-                if (Stage == 1)
-                {
-                    SceneManager.LoadScene(1, LoadSceneMode.Single);
-                }
-                else if (Stage == 2) 
-                {
-                    SceneManager.LoadScene(2, LoadSceneMode.Single);
-                }
+
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
             else
             {
+
                 if (bossTime == 1 && bossDied == true)
                 {
                     bossTime = 2;
