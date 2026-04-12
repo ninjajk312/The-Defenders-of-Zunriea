@@ -22,7 +22,8 @@ public class spawnManager : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<playerSystem>();
 
-        currentBoss = GameObject.Find("Boss").GetComponent<bossOne>();
+        currentBoss = GameObject.Find("Boss_One").GetComponent<bossOne>();
+        currentBoss.gameObject.SetActive(false);
 
         InvokeRepeating("SpawnEnemies", 2.5f, 10f);
 
@@ -37,32 +38,18 @@ public class spawnManager : MonoBehaviour
             SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
-        if (enemyCount == 20 || enemyCount > 20)
+        if (enemyCount == 30 || enemyCount > 30)
         {
-            bossTime = 1;
-
-            if (bossTime == 1 && bossSpawning == true)
+            if (bossTime == 0) 
             {
+                
+                currentBoss.gameObject.SetActive(true);
 
-
-                bossSpawning = false;
-
-                if(Stage == 1) 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                    
-                }
-                else if(Stage == 2) 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                }
-                else 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                }
+                bossTime = 1;
 
             }
-            else if (bossTime == 2)
+
+            if (bossTime == 2)
             {
                 Debug.Log("you Won");
 
@@ -72,7 +59,7 @@ public class spawnManager : MonoBehaviour
             {
                 
 
-                if (bossTime == 1 && currentBoss.isDead == true)
+                if (currentBoss.isDead == true)
                 {
                     bossTime = 2;
                 }
@@ -160,20 +147,6 @@ public class spawnManager : MonoBehaviour
 
     }
 
-    //Work on Bossfind!!!
-    bool Bossfind()
-    {
-        bool a = false;
-
-        if(a == true)
-        {
-            return (true);
-        }
-        else
-        {
-            return (false);
-        }
-    }
     int RandomType()
     {
         int random_number = Random.Range(1, 5);

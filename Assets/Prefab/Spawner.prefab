@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9161079058380185954
 Transform:
   m_ObjectHideFlags: 0
@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811569d888abe394db987d45a9727789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::spawnManager
-  enemyCount: 0
+  enemyCount: 20
   spawnType: 0
   bossTime: 0
-  enemyDied: 0
+  Stage: 1
+  bossSpawning: 1
   Enemies:
   - {fileID: 1836532688383632898, guid: 60e9e29203faa3746ad1b72fb662ff2d, type: 3}
   - {fileID: 4377463114130364296, guid: a1c00d3fbb5cd994c81943bda43cccdd, type: 3}
@@ -55,6 +56,10 @@ MonoBehaviour:
   - {fileID: 4896654218277778313, guid: 6163d2564fa392d49878918afe525bad, type: 3}
   - {fileID: 6858774180391896648, guid: d92c9382badd2f143b4e17b4d5c3eec6, type: 3}
   - {fileID: 2440294515497433641, guid: f3bb5383629b9ab4c803a465283d7662, type: 3}
+  Boss:
+  - {fileID: 4128610348717477403, guid: b675c0fa65826ed4ebce11eb60ecdb86, type: 3}
+  - {fileID: 4128610348717477403, guid: b675c0fa65826ed4ebce11eb60ecdb86, type: 3}
+  - {fileID: 4128610348717477403, guid: b675c0fa65826ed4ebce11eb60ecdb86, type: 3}
   positions:
   - {x: 13, y: 3.6, z: 0}
   - {x: 13, y: 1.6, z: 0}

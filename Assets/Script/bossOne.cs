@@ -38,7 +38,9 @@ public class bossOne : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+
+            this.gameObject.SetActive(false);
         }
 
 
