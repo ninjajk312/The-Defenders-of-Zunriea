@@ -423,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571565124437688484, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
       propertyPath: enemyCount
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8571565124437688484, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
       propertyPath: Boss.Array.size

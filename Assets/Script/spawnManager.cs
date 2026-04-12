@@ -9,7 +9,6 @@ public class spawnManager : MonoBehaviour
     public int Stage = 1;
 
     public bool bossSpawning = true;
-    public bool bossDied = false;
 
     public GameObject[] Enemies;
     public GameObject[] Boss;
@@ -22,6 +21,8 @@ public class spawnManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<playerSystem>();
+
+        currentBoss = GameObject.Find("Boss").GetComponent<bossOne>();
 
         InvokeRepeating("SpawnEnemies", 2.5f, 10f);
 
@@ -69,8 +70,9 @@ public class spawnManager : MonoBehaviour
             }
             else
             {
+                
 
-                if (bossTime == 1 && bossDied == true)
+                if (bossTime == 1 && currentBoss.isDead == true)
                 {
                     bossTime = 2;
                 }

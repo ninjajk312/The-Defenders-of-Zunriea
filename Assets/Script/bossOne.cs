@@ -8,6 +8,8 @@ public class bossOne : MonoBehaviour
     public int counter = 0;
     public float speed = 1.5f;
 
+    public bool isDead = false;
+
     public GameObject[] projectile;
     public Vector3[] positions;
 
