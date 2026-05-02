@@ -7,14 +7,9 @@ public class bossOne : MonoBehaviour
     public int blastCounter = 0;
     public int counter = 0;
     public float speed = 1.5f;
-
-<<<<<<< Updated upstream
-=======
     public int type = 0;
 
     public bool isDead = false;
-
->>>>>>> Stashed changes
     public GameObject[] projectile;
     public Vector3[] positions;
 
@@ -51,7 +46,10 @@ public class bossOne : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+
+            isDead = true;
+
+            this.gameObject.SetActive(false);
         }
 
 
