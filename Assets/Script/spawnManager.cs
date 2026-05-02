@@ -9,7 +9,6 @@ public class spawnManager : MonoBehaviour
     public int Stage = 1;
 
     public bool bossSpawning = true;
-    public bool bossDied = false;
 
     public GameObject[] Enemies;
     public GameObject[] Boss;
@@ -22,6 +21,8 @@ public class spawnManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<playerSystem>();
+
+        spawnboss();
 
         InvokeRepeating("SpawnEnemies", 2.5f, 10f);
 
@@ -36,32 +37,18 @@ public class spawnManager : MonoBehaviour
             SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
-        if (enemyCount == 20 || enemyCount > 20)
+        if (enemyCount == 30 || enemyCount > 30)
         {
-            bossTime = 1;
-
-            if (bossTime == 1 && bossSpawning == true)
+            if (bossTime == 0) 
             {
+                
+                currentBoss.gameObject.SetActive(true);
 
-
-                bossSpawning = false;
-
-                if(Stage == 1) 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                    
-                }
-                else if(Stage == 2) 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                }
-                else 
-                {
-                    Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
-                }
+                bossTime = 1;
 
             }
-            else if (bossTime == 2)
+
+            if (bossTime == 2)
             {
                 Debug.Log("you Won");
 
@@ -70,7 +57,7 @@ public class spawnManager : MonoBehaviour
             else
             {
 
-                if (bossTime == 1 && bossDied == true)
+                if (currentBoss.isDead == true)
                 {
                     bossTime = 2;
                 }
@@ -78,29 +65,25 @@ public class spawnManager : MonoBehaviour
         }
         else
         {
-            spawnType = RandomType();
-
             if (Stage == 1)
             {
                 StageOne();
             }
-            if (Stage == 2) 
-            {
+            else if (Stage == 2) 
+            { 
                 StageTwo();
             }
-            if (Stage == 3)
+            else if (Stage == 3)
             {
                 StageThree();
-            }
-            else 
-            {
-                SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
         }
     }
 
     void StageOne()
     {
+        spawnType = RandomType();
+
         if (spawnType == 1)
         {
             EnemySetOne(0, 3);
@@ -126,49 +109,35 @@ public class spawnManager : MonoBehaviour
 
     void StageTwo()
     {
-        if (spawnType == 1)
-        {
-            
-        }
-        else if (spawnType == 2)
-        {
-            
-        }
-        else if (spawnType == 3)
-        {
-            
-        }
-        else if (spawnType == 4)
-        {
-            
-        }
-        else
-        {
 
-        }
     }
 
     void StageThree()
     {
-        if (spawnType == 1)
-        {
 
+    }
+
+    void spawnboss()
+    {
+
+        if (Stage == 1)
+        {
+            Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
+
+            currentBoss = GameObject.Find("Boss_One(Clone)").GetComponent<bossOne>();
+            currentBoss.gameObject.SetActive(false);
         }
-        else if (spawnType == 2)
+        else if(Stage == 2)
         {
-
+            Instantiate(Boss[1], positions[0], Boss[0].transform.rotation);
+            currentBoss = GameObject.Find("BossTwo(Clone)").GetComponent<bossOne>();
+            currentBoss.gameObject.SetActive(false);
         }
-        else if (spawnType == 3)
+        else if (Stage == 3)
         {
-
-        }
-        else if (spawnType == 4)
-        {
-
-        }
-        else
-        {
-
+            Instantiate(Boss[2], positions[0], Boss[0].transform.rotation);
+            currentBoss = GameObject.Find("BossThree(Clone)").GetComponent<bossOne>();
+            currentBoss.gameObject.SetActive(false);
         }
     }
 
@@ -226,20 +195,6 @@ public class spawnManager : MonoBehaviour
 
     }
 
-    //Work on Bossfind!!!
-    bool Bossfind()
-    {
-        bool a = false;
-
-        if(a == true)
-        {
-            return (true);
-        }
-        else
-        {
-            return (false);
-        }
-    }
     int RandomType()
     {
         int random_number = Random.Range(1, 5);
