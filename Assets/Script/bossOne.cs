@@ -8,13 +8,28 @@ public class bossOne : MonoBehaviour
     public int counter = 0;
     public float speed = 1.5f;
 
+<<<<<<< Updated upstream
+=======
+    public int type = 0;
+
+    public bool isDead = false;
+
+>>>>>>> Stashed changes
     public GameObject[] projectile;
     public Vector3[] positions;
 
     // Update is called once per frame
     void Update()
     {
-        BossOne();
+        if(type == 0)
+        {
+            BossOne();
+        }
+        else if (type == 1)
+        {
+            bossTwo();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +63,12 @@ public class bossOne : MonoBehaviour
 
         counter++;
     }
+
+    void bossTwo()
+    {
+
+    }
+
     void Blast()
     {
         int random_number = Random.Range(0, 3);
@@ -93,4 +114,15 @@ public class bossOne : MonoBehaviour
         }
     }
 
+    void MoveLR()
+    {
+        if (transform.position.x <= -10)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
+        }
+        else if (transform.position.x >= 10)
+        {
+            transform.Translate(Vector2.left * Time.deltaTime * speed);
+        }
+    }
 }

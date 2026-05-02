@@ -12,11 +12,11 @@ public class Title : MonoBehaviour
 
     public void LevelTwo()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
     public void LevelThree()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }

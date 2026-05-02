@@ -16,7 +16,7 @@ public class playerSystem : MonoBehaviour
 
     void Start()
     {
-        spawner.gameObject.SetActive(true);
+        //spawner.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

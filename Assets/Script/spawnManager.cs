@@ -80,27 +80,95 @@ public class spawnManager : MonoBehaviour
         {
             spawnType = RandomType();
 
-            if (spawnType == 1)
+            if (Stage == 1)
             {
-                EnemySetOne(0, 3);
-                EnemySetOne(2, 5);
+                StageOne();
             }
-            else if (spawnType == 2)
+            if (Stage == 2) 
             {
-                EnemySetTwo();
+                StageTwo();
             }
-            else if (spawnType == 3)
+            if (Stage == 3)
             {
-                EnemySetThree();
-            }
-            else if (spawnType == 4)
-            {
-                EnemySetfour();
+                StageThree();
             }
             else 
             {
-                
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
+        }
+    }
+
+    void StageOne()
+    {
+        if (spawnType == 1)
+        {
+            EnemySetOne(0, 3);
+            EnemySetOne(2, 5);
+        }
+        else if (spawnType == 2)
+        {
+            EnemySetTwo();
+        }
+        else if (spawnType == 3)
+        {
+            EnemySetThree();
+        }
+        else if (spawnType == 4)
+        {
+            EnemySetfour();
+        }
+        else
+        {
+
+        }
+    }
+
+    void StageTwo()
+    {
+        if (spawnType == 1)
+        {
+            
+        }
+        else if (spawnType == 2)
+        {
+            
+        }
+        else if (spawnType == 3)
+        {
+            
+        }
+        else if (spawnType == 4)
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+
+    void StageThree()
+    {
+        if (spawnType == 1)
+        {
+
+        }
+        else if (spawnType == 2)
+        {
+
+        }
+        else if (spawnType == 3)
+        {
+
+        }
+        else if (spawnType == 4)
+        {
+
+        }
+        else
+        {
+
         }
     }
 

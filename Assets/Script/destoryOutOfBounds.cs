@@ -4,7 +4,7 @@ public class destoryOutOfBounds : MonoBehaviour
 {
     public float topBound = 30;
     public float lowerBound = -10;
-    public float sideBound = 25;
+    public float sideBound = 16;
 
     // Update is called once per frame
     void Update()
