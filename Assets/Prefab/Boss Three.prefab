@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: 1067065817049178668, guid: 0324e843245123a408dabbb8b6f98702, type: 3}
   - {fileID: 7309388648644154947, guid: e2a518a96e2e0ce42933c5adf7c9f9f4, type: 3}
   positions: []
+  rotate: {fileID: 8705370054340480099}
 --- !u!1001 &801598239571728824
 PrefabInstance:
   m_ObjectHideFlags: 0

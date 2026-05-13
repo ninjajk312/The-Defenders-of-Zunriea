@@ -256,6 +256,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1047225626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3363153359407391425, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
+  m_PrefabInstance: {fileID: 1996016902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1467985890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 2130021019900841379, guid: 745733b41df4997478d7a1f891a3fbda, type: 3}
       propertyPath: spawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1047225626}
     - target: {fileID: 8062466315851427213, guid: 745733b41df4997478d7a1f891a3fbda, type: 3}
       propertyPath: m_Name
       value: Player
@@ -328,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 3363153359407391425, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363153359407391425, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8571565124437688484, guid: fd799f8b81d0bb040baf4089225a80a4, type: 3}
       propertyPath: Stage

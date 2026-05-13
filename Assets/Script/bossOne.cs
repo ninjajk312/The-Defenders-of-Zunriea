@@ -14,6 +14,8 @@ public class bossOne : MonoBehaviour
     public GameObject[] projectile;
     public Vector3[] positions;
 
+    public Transform rotate;
+
     // Update is called once per frame
     void Update()
     {
@@ -104,6 +106,8 @@ public class bossOne : MonoBehaviour
 
     void BossThree()
     {
+        rotate = RotateBlast();
+
         if (counter < 1000)
         {
             BlastR();
@@ -217,6 +221,14 @@ public class bossOne : MonoBehaviour
 
             move = true;
         }
-        
+    }
+
+    Transform RotateBlast()
+    {
+        Transform a = projectile[2].transform;
+
+        a.Rotate(new Vector3(0, 0, 45));
+
+        return (a);
     }
 }
