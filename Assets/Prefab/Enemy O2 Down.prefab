@@ -97,7 +97,7 @@ MonoBehaviour:
   blastCounter: 0
   counter: 0
   type: 4
-  speed: 1.5
+  speed: 10
   projectile: {fileID: 1415142430027317294, guid: 985feaf3f650d0b40afe04613d8a7b77, type: 3}
 --- !u!114 &6281807474076201069
 MonoBehaviour:

@@ -109,12 +109,57 @@ public class spawnManager : MonoBehaviour
 
     void StageTwo()
     {
+        spawnType = RandomType();
 
+        if (spawnType == 1)
+        {
+            EnemySetOne(0, 3);
+            EnemySetOne(2, 5);
+        }
+        else if (spawnType == 2)
+        {
+            EnemySetTwo();
+        }
+        else if (spawnType == 3)
+        {
+            EnemySetThree();
+        }
+        else if (spawnType == 4)
+        {
+            EnemySetfour();
+        }
+        else
+        {
+            spawnType = RandomType();
+
+
+            if (spawnType == 1)
+            {
+                EnemySetSix();
+            }
+            else if (spawnType == 2)
+            {
+                EnemySetFive();
+            }
+            else if (spawnType == 3)
+            {
+                EnemySetfour();
+            }
+            else if (spawnType == 4)
+            {
+                EnemySetOne(2, 5);
+            }
+            else
+            { 
+            
+            }
+
+        }
     }
 
     void StageThree()
     {
-
+        enemyCount = 30;
     }
 
     void spawnboss()
@@ -124,19 +169,19 @@ public class spawnManager : MonoBehaviour
         {
             Instantiate(Boss[0], positions[0], Boss[0].transform.rotation);
 
-            currentBoss = GameObject.Find("Boss_One(Clone)").GetComponent<bossOne>();
+            currentBoss = GameObject.FindGameObjectWithTag("Boss").GetComponent<bossOne>();
             currentBoss.gameObject.SetActive(false);
         }
         else if(Stage == 2)
         {
-            Instantiate(Boss[1], positions[0], Boss[0].transform.rotation);
-            currentBoss = GameObject.Find("BossTwo(Clone)").GetComponent<bossOne>();
+            Instantiate(Boss[1], positions[12], Boss[1].transform.rotation);
+            currentBoss = GameObject.FindGameObjectWithTag("Boss").GetComponent<bossOne>();
             currentBoss.gameObject.SetActive(false);
         }
         else if (Stage == 3)
         {
-            Instantiate(Boss[2], positions[0], Boss[0].transform.rotation);
-            currentBoss = GameObject.Find("BossThree(Clone)").GetComponent<bossOne>();
+            Instantiate(Boss[2], positions[12], Boss[2].transform.rotation);
+            currentBoss = GameObject.FindGameObjectWithTag("Boss").GetComponent<bossOne>();
             currentBoss.gameObject.SetActive(false);
         }
     }
@@ -193,6 +238,39 @@ public class spawnManager : MonoBehaviour
 
         enemyCount += 2;
 
+    }
+
+    void EnemySetFive()
+    {
+        bool a = true;
+
+        if (a == true)
+        {
+            Instantiate(Enemies[6], positions[1], Enemies[3].transform.rotation);
+            Instantiate(Enemies[6], positions[3], Enemies[3].transform.rotation);
+
+            a = false;
+        }
+        else if (a == false)
+        {
+            Instantiate(Enemies[6], positions[4], Enemies[3].transform.rotation);
+            Instantiate(Enemies[6], positions[0], Enemies[3].transform.rotation);
+
+            a = true;
+        }
+
+
+        enemyCount += 2;
+    }
+
+    void EnemySetSix()
+    {
+        Instantiate(Enemies[5], positions[6], Enemies[5].transform.rotation);
+        Instantiate(Enemies[5], positions[7], Enemies[5].transform.rotation);
+        Instantiate(Enemies[5], positions[10], Enemies[5].transform.rotation);
+        Instantiate(Enemies[5], positions[11], Enemies[5].transform.rotation);
+
+        enemyCount += 4;
     }
 
     int RandomType()

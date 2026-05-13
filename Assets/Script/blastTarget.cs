@@ -3,7 +3,7 @@ using UnityEngine;
 public class blastTarget : MonoBehaviour
 {
 
-    public float speed = 5;
+    public float speed = 3;
     public int CountMax = 10000;
     public int Count = 0;
 
@@ -25,7 +25,8 @@ public class blastTarget : MonoBehaviour
         }
         else
         {
-            transform.Translate(playerPos.position * Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, playerPos.position, Time.deltaTime * speed);
+            //transform.Translate(playerPos.position * Time.deltaTime * speed);
         }
 
         if (Count > CountMax) 

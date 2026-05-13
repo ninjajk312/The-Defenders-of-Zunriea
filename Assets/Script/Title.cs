@@ -17,6 +17,6 @@ public class Title : MonoBehaviour
 
     public void LevelThree()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
 }
