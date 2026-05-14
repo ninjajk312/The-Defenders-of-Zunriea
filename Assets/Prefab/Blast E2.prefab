@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::blastTarget
   speed: 0.5
+  CountMax: 1000
+  Count: 0
 --- !u!114 &7664701258862652671
 MonoBehaviour:
   m_ObjectHideFlags: 0
